@@ -40,4 +40,4 @@ export class NestedNote {
     }
 }
 // @ts-ignore
-window.NestedNode = NestedNote;
+window.NestedNote = NestedNote;
