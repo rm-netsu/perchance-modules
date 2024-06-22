@@ -1,0 +1,15 @@
+{
+  "name": "@rm-netsu/perchance-modules",
+  "version": "0.0.1",
+  "description": "",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc && tsc-alias"
+  },
+  "author": "rm-netsu",
+  "license": "ISC",
+  "devDependencies": {
+    "tsc-alias": "^1.8.10"
+  }
+}
