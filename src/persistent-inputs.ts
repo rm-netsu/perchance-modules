@@ -1,15 +1,15 @@
-const targetNode = document.body
-const config = { attributes: true, childList: true, subtree: true }
+export const targetNode = document.body
+export const config = { attributes: true, childList: true, subtree: true }
 
-const cacheValue = (el: HTMLTextAreaElement | HTMLInputElement) => {
+export const cacheValue = (el: HTMLTextAreaElement | HTMLInputElement) => {
   localStorage.setItem(el.id, el.value)
 }
-const applyValue = (el: HTMLTextAreaElement | HTMLInputElement) => {
+export const applyValue = (el: HTMLTextAreaElement | HTMLInputElement) => {
   const value = localStorage.getItem(el.id)
   if(value !== null) el.value = value
 }
 
-const onInput = (e: Event) => {
+export const onInput = (e: Event) => {
   if(e.type !== 'input') return
 
   if(
@@ -20,7 +20,7 @@ const onInput = (e: Event) => {
   }
 }
 
-const callback: MutationCallback = (mutationList, observer) => {
+export const callback: MutationCallback = (mutationList, observer) => {
 	mutationList.forEach(mut => {
     switch(mut.type) {
       case 'childList': {
@@ -42,5 +42,5 @@ const callback: MutationCallback = (mutationList, observer) => {
   })
 }
 
-const observer = new MutationObserver(callback)
+export const observer = new MutationObserver(callback)
 observer.observe(targetNode, config)

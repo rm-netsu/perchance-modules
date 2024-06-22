@@ -1,15 +1,14 @@
-"use strict";
-const targetNode = document.body;
-const config = { attributes: true, childList: true, subtree: true };
-const cacheValue = (el) => {
+export const targetNode = document.body;
+export const config = { attributes: true, childList: true, subtree: true };
+export const cacheValue = (el) => {
     localStorage.setItem(el.id, el.value);
 };
-const applyValue = (el) => {
+export const applyValue = (el) => {
     const value = localStorage.getItem(el.id);
     if (value !== null)
         el.value = value;
 };
-const onInput = (e) => {
+export const onInput = (e) => {
     if (e.type !== 'input')
         return;
     if (e.target instanceof HTMLTextAreaElement ||
@@ -17,7 +16,7 @@ const onInput = (e) => {
         cacheValue(e.target);
     }
 };
-const callback = (mutationList, observer) => {
+export const callback = (mutationList, observer) => {
     mutationList.forEach(mut => {
         switch (mut.type) {
             case 'childList':
@@ -35,5 +34,5 @@ const callback = (mutationList, observer) => {
         }
     });
 };
-const observer = new MutationObserver(callback);
+export const observer = new MutationObserver(callback);
 observer.observe(targetNode, config);
