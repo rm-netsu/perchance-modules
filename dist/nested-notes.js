@@ -19,7 +19,7 @@ export class NestedNote {
         this.summary.append(this.iconsDiv);
         this.addIcon('🗑️', e => {
             this.details.remove();
-            this.onClose?.(e);
+            this.onClose?.(this);
         });
         this.textarea = document.createElement('textarea');
         if (params?.placeholder)

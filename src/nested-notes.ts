@@ -3,7 +3,7 @@ export type NestedNodeParams = {
   name: string,
   text?: string,
   placeholder?: string,
-  onClose?: (e: Event) => void,
+  onClose?: (n: NestedNote) => void,
 }
 
 export class NestedNote {
@@ -14,7 +14,7 @@ export class NestedNote {
   iconsDiv: HTMLDivElement
   textarea: HTMLTextAreaElement
 
-  onClose?: (e: Event) => void
+  onClose?: (n: NestedNote) => void
 
   constructor(params: NestedNodeParams) {
     this.details = document.createElement('details')
@@ -33,7 +33,7 @@ export class NestedNote {
 
     this.addIcon('🗑️', e => {
       this.details.remove()
-      this.onClose?.(e)
+      this.onClose?.(this)
     })
 
     this.textarea = document.createElement('textarea')
